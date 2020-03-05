@@ -6,18 +6,18 @@ import os
 
 class Cliente():
 
-	def __init__(self, host=socket.gethostname(), port=59989):
+	def __init__(self, host=input('Introduzca la IP del servidor\n'), port=input('Introduzca el puerto del servidor\n')):
 		self.sock = socket.socket()
 		self.sock.connect((str(host), int(port)))
 		hilo_recv_mensaje = threading.Thread(target=self.recibir)
 		hilo_recv_mensaje.daemon = True
 		hilo_recv_mensaje.start()
-		print('Hilo con PID',os.getpid())
-		print('Hilos activos', threading.active_count())
+		print('Hilo con PID',os.getpid(), 'y total hilos activos',threading.active_count())
+		#print('Hilos activos', threading.active_count())
 
 		while True:
-			msg = input('\nEscriba texto ? ** Enviar = ENTER ** Abandonar Chat = Q \n')
-			if msg != 'Q' :
+			msg = input('\nEscriba texto ? ** Enviar = ENTER ** Abandonar Chat = 1 \n')
+			if msg != '1' :
 				self.enviar(msg)
 			else:
 				print(" **** TALOGOOO  ****")
