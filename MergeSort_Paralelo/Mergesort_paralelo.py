@@ -18,8 +18,9 @@ def main():
 
     
     #A continuación deberíamos leer el número de cores usando multiprocessing.cpu_count(), pero en mi caso tengo problemas ya que tengo
-    # un número de cores físicos inusual (6 cores, que tienen un total de 12 cores lógicos) así que los he introducido a mano (n= 6)
-    n = 6                                   
+    # un n úmero de cores físicos inusual (6 cores, que tienen un total de 12 cores lógicos) así que los he introducido a mano (n= 6)
+    n = 6 
+   # el código debe ejecutarse en cualquier máquina conforme se especifica en el enunciado, da igual si tienes seis o 300 cores deberás distribuirlos de forma eficiente en relación al problema que estés resolviendo
     print('Array formado por ', numero_expediente, ' numeros aleatorios creado.')
     inicio = time.time()                    #Se guarda el instante de tiempo justo antes de la ejecución del programa para ser usado
     array = mergeSortParallel(array, n)     #Se ejecuta el MergeSort en paralelo 
