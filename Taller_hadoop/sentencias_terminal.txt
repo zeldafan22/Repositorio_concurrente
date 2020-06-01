@@ -1,0 +1,21 @@
+sudo su hdfs
+hadoop fs -mkdir /user/(nombre directorio)
+hadoop fs -chown cloudera /user/(nombre directorio)
+exit 
+
+hadoop fs -mkdir /user/(directorio)/wordcounter /user/(directorio)/wordcounter/input
+descargamos el fichero a analizar en un directorio (/home/cloudera/worspace)
+hadoop fs -put /home/cloudera/workspace/(fichero a contar) /user/(directorio)/wordcounter/input
+
+cd workspace
+cd Contador_MapReduce
+mkdir -p build
+
+sudo javac -cp /usr/lib/hadoop-mapreduce/* src/*.java -d build -Xlint
+
+jar -cvf wordcount.jar -C build/ .
+
+sudo hadoop jar wordcount.jar Driver /user/(directorio)/wordcount/input /user/(directorio)/wordcount/output
+
+Procesar desde due, descargar y analizar por consola usando la siguiente sentencia //sort –k 2 –n part –r–00000 //
+
