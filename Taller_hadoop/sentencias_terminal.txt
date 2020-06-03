@@ -15,7 +15,7 @@ sudo javac -cp /usr/lib/hadoop/*:/usr/lib/hadoop-mapreduce/* src/*.java -d build
 
 jar -cvf wordcount.jar -C build/ .
 
-sudo hadoop jar wordcount.jar (nombre de la carpeta del proyecto de eclipse) /user/(directorio)/wordcounter/input /user/(directorio)/wordcounter/output
+sudo hadoop jar wordcount.jar (nombre del archivo java (Driver)) /user/(directorio)/wordcounter/input /user/(directorio)/wordcounter/output
 
 //Igual hay que poner wordcount en vez de wordcounter
 
