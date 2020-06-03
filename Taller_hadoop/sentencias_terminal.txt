@@ -11,11 +11,14 @@ cd workspace
 cd Contador_MapReduce
 mkdir -p build
 
-sudo javac -cp /usr/lib/hadoop-mapreduce/* src/*.java -d build -Xlint
+sudo javac -cp /usr/lib/hadoop/*:/usr/lib/hadoop-mapreduce/* src/*.java -d build -Xlint
 
 jar -cvf wordcount.jar -C build/ .
 
-sudo hadoop jar wordcount.jar Driver /user/(directorio)/wordcount/input /user/(directorio)/wordcount/output
+sudo hadoop jar wordcount.jar (nombre de la carpeta del proyecto de eclipse) /user/(directorio)/wordcounter/input /user/(directorio)/wordcounter/output
 
-Procesar desde due, descargar y analizar por consola usando la siguiente sentencia //sort –k 2 –n part –r–00000 //
+//Igual hay que poner wordcount en vez de wordcounter
+
+Procesar desde due, descargar y analizar por consola usando la siguiente sentencia //sort –k 2 –n part–r–00000 // 
+										   //sort -k2,2gr part-r-00000 //
 
